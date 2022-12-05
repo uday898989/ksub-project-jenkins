@@ -1,88 +1,105 @@
+<!DOCTYPE html>
 <html>
- 
 <head>
-    <title>
-        Simple web Development Template
-    </title>
-</head>
- 
-<body>
-    <nav class="navbar background">
-        <ul class="nav-list">
-            <div class="logo">
-                <img src="logo.png">
-            </div>
-            <li><a href="#web">Aws</a></li>
-            <li><a href="#program">Devops</a></li>
-            <li><a href="#course">Angular</a></li>
-        </ul>
- 
-        <div class="rightNav">
-            <input type="text" name="search" id="search">
-            <button class="btn btn-sm">Search</button>
-        </div>
-    </nav>
- 
-    <section class="firstsection">
-        <div class="box-main">
-            <div class="firstHalf">
-                <h1 class="text-big" id="web">
-                    Web Technology
-                </h1>
-                 
-                <p class="text-small">
-                    HTML stands for HyperText Markup
-                    Language. It is used to design
-                    web pages using a markup language.
-                    HTML is the combination of Hypertext
-                    and Markup language. Hypertext
-                    defines the link between the web
-                    pages. A markup language is used
-                    to define the text document within
-                    tag which defines the structure of
-                    web pages. HTML is a markup language
-                    that is used by the browser to
-                    manipulate text, images, and other
-                    content to display it in the required
-                    format.
-                </p>
- 
- 
-            </div>
-        </div>
-    </section>
- 
-    <section class="secondsection">
-        <div class="box-main">
-            <div class="secondHalf">
-                <h1 class="text-big" id="program">
-                    C Programming
-                </h1>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
 
- 
- 
-            </div>
-        </div>
-    </section>
- 
-    <section class="section">
-        <div class="paras">
-            <h1 class="sectionTag text-big">Java</h1>
- 
-        </div>
- 
-        <div class="thumbnail">
-            <img src="img.png" alt="laptop image">
-        </div>
-    </section>
- 
-    <footer class="background">
-        <p class="text-footer">
-            Copyright ©-All rights are reserved
-        </p>
- 
- 
-    </footer>
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+/* The grid: Four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+  padding: 10px;
+}
+
+/* Style the images inside the grid */
+.column img {
+  opacity: 0.8; 
+  cursor: pointer; 
+}
+
+.column img:hover {
+  opacity: 1;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* The expanding image container */
+.container {
+  position: relative;
+  display: none;
+}
+
+/* Expanding image text */
+#imgtext {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  color: white;
+  font-size: 20px;
+}
+
+/* Closable button inside the expanded image */
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<div style="text-align:center">
+  <h2>Tabbed Image Gallery</h2>
+  <p>Click on the images below:</p>
+</div>
+
+<!-- The four columns -->
+<div class="row">
+  <div class="column">
+    <img src="img_nature.jpg" alt="Nature" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img_snow.jpg" alt="Snow" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img_mountains.jpg" alt="Mountains" style="width:100%" onclick="myFunction(this);">
+  </div>
+  <div class="column">
+    <img src="img_lights.jpg" alt="Lights" style="width:100%" onclick="myFunction(this);">
+  </div>
+</div>
+
+<div class="container">
+  <span onclick="this.parentElement.style.display='none'" class="closebtn">&times;</span>
+  <img id="expandedImg" style="width:100%">
+  <div id="imgtext"></div>
+</div>
+
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  var imgText = document.getElementById("imgtext");
+  expandImg.src = imgs.src;
+  imgText.innerHTML = imgs.alt;
+  expandImg.parentElement.style.display = "block";
+}
+</script>
+
 </body>
- 
 </html>
