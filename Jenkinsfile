@@ -6,8 +6,7 @@ pipeline {
             steps {
                 checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/kmehaboobsubhani/javaWorking.git']]])
             }
-        }
-        
+        }        
         stage('Clean') {
             steps {
                sh "mvn -Dmaven.test.failure.ignore=true clean"
